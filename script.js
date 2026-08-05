@@ -71,3 +71,35 @@ const demoForecastData = {
     },
   ],
 };
+
+
+function showLoading(isLoading) {
+  loadingState.classList.toggle("hidden", !isLoading);
+}
+
+function showError(message) {
+  errorMessage.textContent = message;
+  errorMessage.classList.remove("hidden");
+}
+
+function clearError() {
+  errorMessage.textContent = "";
+  errorMessage.classList.add("hidden");
+}
+
+function getCityDateTime(offsetSeconds) {
+  const localUtcTime = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
+  return new Date(localUtcTime + offsetSeconds * 1000);
+}
+
+function updateDateTime() {
+  const cityDate = getCityDateTime(cityTimezoneOffset);
+  dateTimeEl.textContent = new Intl.DateTimeFormat("en-GB", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(cityDate);
+}
