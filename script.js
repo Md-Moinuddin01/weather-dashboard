@@ -173,3 +173,38 @@ function renderForecast(list) {
   });
 }
 
+
+async function fetchWeatherData(city) {
+  if (!apiKey || apiKey === "88f0f1d0371eda93cb6fbdb92c26f129") {
+    if (city.toLowerCase() === defaultCity.toLowerCase()) {
+      renderCurrentWeather(demoWeatherData);
+      renderForecast(demoForecastData.list);
+      return;
+    }
+
+    throw new Error("Please add your API key in script.js.");
+  }
+
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;
+  const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&units=metric&appid=${apiKey}`;
+
+  const [weatherResponse, forecastResponse] = await Promise.all([
+    fetch(weatherUrl),
+    fetch(forecastUrl),
+  ]);
+
+  if (!weatherResponse.ok) {
+    throw new Error("City not found. Please try another location.");
+  }
+
+  if (!forecastResponse.ok) {
+    throw new Error("Forecast data could not be loaded.");
+  }
+
+  const weatherData = await weatherResponse.json();
+  const forecastData = await forecastResponse.json();
+
+  renderCurrentWeather(weatherData);
+  renderForecast(forecastData.list);
+}
+
