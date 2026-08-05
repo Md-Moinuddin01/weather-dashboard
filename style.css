@@ -130,3 +130,75 @@ input {
   border: 1px solid rgba(37, 99, 235, 0.12);
 }
 
+.primary-button:hover,
+.secondary-button:hover,
+.search-bar input:hover {
+  transform: translateY(-2px);
+}
+
+.dashboard {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 0 0 48px;
+  display: grid;
+  gap: 24px;
+}
+
+.glass-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.weather-card {
+  padding: 28px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.city-name {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.date-time {
+  margin: 8px 0 0;
+}
+
+.weather-icon {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(59, 130, 246, 0.18));
+}
+
+.weather-main {
+  margin-top: 18px;
+}
+
+.temperature-row {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+}
+
+.temperature {
+  font-size: clamp(3.2rem, 7vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.temperature-unit {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
