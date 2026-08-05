@@ -10,3 +10,24 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page-bg"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <p class="eyebrow">Live weather updates</p>
+      <h1>Weather Dashboard</h1>
+      <p class="subtitle">Search any city or use your current location.</p>
+    </div>
+
+    <form class="search-bar" id="searchForm">
+      <label class="sr-only" for="cityInput">Search city</label>
+      <input
+        id="cityInput"
+        type="text"
+        placeholder="Enter city name"
+        autocomplete="off"
+      >
+      <button type="submit" class="primary-button">Search</button>
+      <button type="button" class="secondary-button" id="locationBtn">Current Location</button>
+    </form>
+  </header>
