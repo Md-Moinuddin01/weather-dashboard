@@ -279,3 +279,22 @@ function getCurrentLocationWeather() {
   );
 }
 
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  loadWeather(cityInput.value);
+});
+
+locationBtn.addEventListener("click", getCurrentLocationWeather);
+
+cityInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    loadWeather(cityInput.value);
+  }
+});
+
+window.addEventListener("load", () => {
+  cityInput.value = defaultCity;
+  loadWeather(defaultCity);
+});
+
