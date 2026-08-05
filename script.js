@@ -151,3 +151,25 @@ function getDailyForecasts(list) {
   return dailyForecasts;
 }
 
+function renderForecast(list) {
+  forecastGrid.innerHTML = "";
+
+  const dailyForecasts = getDailyForecasts(list);
+
+  dailyForecasts.forEach((forecast) => {
+    const date = new Date(`${forecast.dt_txt.replace(" ", "T")}`);
+    const dayName = new Intl.DateTimeFormat("en-GB", { weekday: "short" }).format(date);
+
+    const card = document.createElement("article");
+    card.className = "forecast-card";
+
+    card.innerHTML = `
+      <p class="forecast-day">${dayName}</p>
+      <img class="forecast-icon" src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="${forecast.weather[0].description}">
+      <p class="forecast-temp">${Math.round(forecast.main.temp)}°C</p>
+    `;
+
+    forecastGrid.appendChild(card);
+  });
+}
+
