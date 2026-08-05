@@ -30,3 +30,49 @@ body {
     linear-gradient(180deg, var(--bg-1), var(--bg-2));
   min-height: 100vh;
 }
+
+button,
+input {
+  font: inherit;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.55), transparent 24%),
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.35), transparent 18%);
+  opacity: 0.9;
+}
+
+.topbar,
+.dashboard {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0 24px;
+  display: grid;
+  gap: 20px;
+  align-items: end;
+}
+
+.brand h1,
+.section-heading h2 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.eyebrow,
+.section-label {
+  margin: 0 0 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
