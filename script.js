@@ -208,3 +208,24 @@ async function fetchWeatherData(city) {
   renderForecast(forecastData.list);
 }
 
+
+async function loadWeather(city) {
+  const trimmedCity = city.trim();
+
+  if (!trimmedCity) {
+    showError("Please enter a city name.");
+    return;
+  }
+
+  showLoading(true);
+  clearError();
+
+  try {
+    await fetchWeatherData(trimmedCity);
+  } catch (error) {
+    showError(error.message);
+  } finally {
+    showLoading(false);
+  }
+}
+
