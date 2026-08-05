@@ -103,3 +103,31 @@ function updateDateTime() {
     minute: "2-digit",
   }).format(cityDate);
 }
+
+
+function setWeatherIcon(iconCode, description) {
+  weatherIconEl.src = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  weatherIconEl.alt = description || "Weather icon";
+}
+
+function renderCurrentWeather(data) {
+  cityTimezoneOffset = data.timezone || 0;
+
+  cityNameEl.textContent = `${data.name}, ${data.sys.country}`;
+  temperatureEl.textContent = Math.round(data.main.temp);
+  weatherDescriptionEl.textContent = data.weather[0].description;
+  feelsLikeEl.textContent = `Feels like ${Math.round(data.main.feels_like)}°C`;
+  humidityEl.textContent = `${data.main.humidity}%`;
+  windSpeedEl.textContent = `${data.wind.speed} m/s`;
+  pressureEl.textContent = `${data.main.pressure} hPa`;
+  visibilityEl.textContent = `${Math.round(data.visibility / 1000)} km`;
+  setWeatherIcon(data.weather[0].icon, data.weather[0].description);
+  updateDateTime();
+
+  if (dateTimeInterval) {
+    clearInterval(dateTimeInterval);
+  }
+
+  dateTimeInterval = setInterval(updateDateTime, 60000);
+}
+
