@@ -76,3 +76,57 @@ input {
   font-weight: 600;
   color: var(--primary-dark);
 }
+
+.subtitle,
+.date-time,
+.weather-description,
+.feels-like,
+.stat-label {
+  color: var(--muted);
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+}
+
+.search-bar input {
+  width: 100%;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 18px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text);
+  outline: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 22px 40px rgba(59, 130, 246, 0.15);
+}
+
+.primary-button,
+.secondary-button {
+  border: none;
+  border-radius: 18px;
+  padding: 0 18px;
+  min-height: 54px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 16px 26px rgba(37, 99, 235, 0.28);
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
