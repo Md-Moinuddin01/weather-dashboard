@@ -31,3 +31,24 @@
       <button type="button" class="secondary-button" id="locationBtn">Current Location</button>
     </form>
   </header>
+
+  
+  <main class="dashboard">
+    <section class="weather-card glass-card fade-in" aria-labelledby="currentWeatherTitle">
+      <div class="card-head">
+        <div>
+          <p class="section-label">Current Weather</p>
+          <h2 id="currentWeatherTitle" class="city-name">Loading...</h2>
+          <p id="dateTime" class="date-time">--</p>
+        </div>
+        <img id="weatherIcon" class="weather-icon" src="" alt="" aria-hidden="true">
+      </div>
+
+      <div class="weather-main">
+        <div class="temperature-row">
+          <span id="temperature" class="temperature">--</span>
+          <span class="temperature-unit">°C</span>
+        </div>
+        <p id="weatherDescription" class="weather-description">Fetching weather data...</p>
+        <p id="feelsLike" class="feels-like">Feels like --</p>
+      </div>
