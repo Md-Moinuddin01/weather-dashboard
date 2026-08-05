@@ -229,3 +229,14 @@ async function loadWeather(city) {
   }
 }
 
+
+function getCurrentLocationWeather() {
+  if (!navigator.geolocation) {
+    showError("Geolocation is not supported by this browser.");
+    return;
+  }
+
+  showLoading(true);
+  clearError();
+
+
