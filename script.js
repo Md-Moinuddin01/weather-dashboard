@@ -131,3 +131,23 @@ function renderCurrentWeather(data) {
   dateTimeInterval = setInterval(updateDateTime, 60000);
 }
 
+function getDailyForecasts(list) {
+  const dailyForecasts = [];
+  const seenDates = new Set();
+
+  for (const item of list) {
+    const forecastDate = item.dt_txt.split(" ")[0];
+
+    if (!seenDates.has(forecastDate)) {
+      seenDates.add(forecastDate);
+      dailyForecasts.push(item);
+    }
+
+    if (dailyForecasts.length === 5) {
+      break;
+    }
+  }
+
+  return dailyForecasts;
+}
+
