@@ -240,3 +240,9 @@ function getCurrentLocationWeather() {
   clearError();
 
 
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      try {
+        if (!apiKey || apiKey === "88f0f1d0371eda93cb6fbdb92c26f129") {
+          throw new Error("Please add your OpenWeatherMap API key in script.js.");
+        }
