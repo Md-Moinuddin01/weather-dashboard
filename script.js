@@ -246,3 +246,36 @@ function getCurrentLocationWeather() {
         if (!apiKey || apiKey === "88f0f1d0371eda93cb6fbdb92c26f129") {
           throw new Error("Please add your OpenWeatherMap API key in script.js.");
         }
+
+        
+        const { latitude, longitude } = position.coords;
+        const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+
+        const [weatherResponse, forecastResponse] = await Promise.all([
+          fetch(weatherUrl),
+          fetch(forecastUrl),
+        ]);
+
+        if (!weatherResponse.ok || !forecastResponse.ok) {
+          throw new Error("Weather data could not be loaded for your location.");
+        }
+
+        const weatherData = await weatherResponse.json();
+        const forecastData = await forecastResponse.json();
+
+        renderCurrentWeather(weatherData);
+        renderForecast(forecastData.list);
+      } catch (error) {
+        showError(error.message);
+      } finally {
+        showLoading(false);
+      }
+    },
+    () => {
+      showLoading(false);
+      showError("Location access was denied.");
+    }
+  );
+}
+
