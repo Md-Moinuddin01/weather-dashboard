@@ -339,3 +339,53 @@ input {
 .fade-in {
   animation: fadeIn 0.7s ease both;
 }
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 980px) {
+  .stats-grid,
+  .forecast-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    padding-top: 28px;
+  }
+
+  .search-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .card-head {
+    flex-direction: column;
+  }
+
+  .weather-icon {
+    align-self: flex-end;
+  }
+
+  .stats-grid,
+  .forecast-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
