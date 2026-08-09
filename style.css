@@ -228,7 +228,6 @@ input {
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-
 .stat-item:hover,
 .forecast-card:hover {
   transform: translateY(-4px);
@@ -262,7 +261,6 @@ input {
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
 }
-
 
 .forecast-card {
   background: rgba(255, 255, 255, 0.68);
