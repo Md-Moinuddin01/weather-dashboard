@@ -173,7 +173,6 @@ function renderForecast(list) {
   });
 }
 
-
 async function fetchWeatherData(city) {
   if (!apiKey || apiKey === "88f0f1d0371eda93cb6fbdb92c26f129") {
     if (city.toLowerCase() === defaultCity.toLowerCase()) {
@@ -238,7 +237,6 @@ function getCurrentLocationWeather() {
 
   showLoading(true);
   clearError();
-
 
   navigator.geolocation.getCurrentPosition(
     async (position) => {
